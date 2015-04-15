@@ -17,7 +17,7 @@
 
 			#pc{
 				position: absolute;
-				display: none;
+				//display: none;
 				-webkit-touch-callout: none;
 				-webkit-user-select: none;
 				-khtml-user-select: none;
@@ -228,8 +228,6 @@
 				pc.style.display = 'block';
 				pc.backgroundColor = 'green';
 
-				gameWindow.appendChild(pc);
-
 				pcDiv = document.getElementById('pcDiv');
 				pcDiv.style.width = '20px';
 				pcDiv.style.height = '40px';
@@ -239,7 +237,6 @@
 				npc_prince.style.height = '40px';
 				npc_prince.style.display = 'block';
 				npc_prince.backgroundColor = "yellow";
-				gameWindow.appendChild(npc_prince);
 
 				nextLevel();
 			}
@@ -292,7 +289,7 @@
 				
 
 				document.getElementById('btnContinue').style.display = 'none';
-				document.getElementById('getNot').style.display = 'none';
+				//document.getElementById('getNot').style.display = 'none';
 				
 				level++;
 				document.getElementById('level').innerHTML="Level " + level;
@@ -304,7 +301,9 @@
 				rightArrowDown = false;
 				upArrowDown = false;
 
-				pc.style.left = '190px';
+				pc = document.getElementById('pc');
+
+				pc.style.left = 190 + "px";
 				pc.style.top = '0px';
 				pcDiv.style.left = '190px';
 				pcDiv.style.top = '0px';
@@ -327,6 +326,9 @@
 
 				spikes = new Array();
 				
+				gameWindow.appendChild(pc);
+				gameWindow.appendChild(pcDiv);
+				gameWindow.appendChild(npc_prince);
 
 				if(level==1){
 

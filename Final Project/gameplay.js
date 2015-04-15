@@ -64,9 +64,9 @@ function movement(){
 	}
 
 	// VERTICAL MOVEMENT
-	if (fallSpeed>0){
-		pc.src = "princessFall.gif";
-	}
+	// if (fallSpeed>0){
+	// 	pc.src = "princessFall.gif";
+	// }
 
 
 	if (fallSpeed <= 500){
@@ -88,9 +88,9 @@ function movement(){
 				if(upArrowDown){ 
 					fallSpeed = -25;
 					if(parseInt(pc.style.top) < pcTop){
-						document.getElementById('sndLand').currentTime = 0;
-						document.getElementById('sndLand').volume = 0.1;
-						document.getElementById('sndLand').play();
+						// document.getElementById('sndLand').currentTime = 0;
+						// document.getElementById('sndLand').volume = 0.1;
+						// document.getElementById('sndLand').play();
 					}
 				
 				} 
@@ -176,9 +176,9 @@ function movement(){
 
 				if(upArrowDown) {
 					fallSpeed = -25;
-					document.getElementById('sndLand').currentTime = 0;
-					document.getElementById('sndLand').volume = 0.1;
-					document.getElementById('sndLand').play();
+					// document.getElementById('sndLand').currentTime = 0;
+					// document.getElementById('sndLand').volume = 0.1;
+					// document.getElementById('sndLand').play();
 				} 
 				else{
 					fallSpeed = 0;
@@ -193,26 +193,19 @@ function movement(){
 
 		clearInterval(gameTimer);
 		if(level==3){
-			document.getElementById('get2').currentTime = 0;
-			document.getElementById('get2').play();
+			// document.getElementById('get2').currentTime = 0;
+			// document.getElementById('get2').play();
 			gameWindow.innerHTML = '<br><br>A Winner Is You!';
 			gameWindow.className = 'msgGameOver';
 		}
 		else{
-			document.getElementById('get1').currentTime = 0;
-			document.getElementById('get1').play();
-			document.getElementById('getNot').style.display = 'block';
+			// document.getElementById('get1').currentTime = 0;
+			// document.getElementById('get1').play();
+			//document.getElementById('getNot').style.display = 'block';
 			document.getElementById('btnContinue').style.display = 'block';
 			clearInterval(gameTimer);
 			
 		}
-		// else if(parseInt(pc.style.top) > 400){
-		// 	clearInterval(gameTimer);
-		
-		// 	removeLife();
-		// 	level--;
-		// 	nextLevel();
-		// }
 	}
 }
 
@@ -230,9 +223,9 @@ document.addEventListener('keydown', function(event){
 			clearInterval(gameTimer);
 			document.getElementById('pause').style.display = 'block';
 			//place all audio here, replace sndLand with audio ID.
-			if(!document.getElementById('sndLand').paused){
-				document.getElementById('sndLand').volume = 0;
-			}
+			// if(!document.getElementById('sndLand').paused){
+			// 	document.getElementById('sndLand').volume = 0;
+			// }
 			
 		}
 	}
