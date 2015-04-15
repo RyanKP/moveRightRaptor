@@ -206,6 +206,13 @@ function movement(){
 			clearInterval(gameTimer);
 			
 		}
+		else if(parseInt(pc.style.top) > 400){
+			clearInterval(gameTimer);
+		
+			removeLife();
+			level--;
+			nextLevel();
+		}
 	}
 }
 

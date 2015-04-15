@@ -188,8 +188,8 @@
 
 			function addLife(){
 				numLives++;
-				var life = document.createElement('IMG');
-				life.src='heart.png';
+				var life = document.createElement('DIV');
+				life.backgroundColor = "purple";
 				lifebar.appendChild(life);
 			}
 
@@ -220,22 +220,26 @@
 				lifebar = document.getElementById('lifebar');
 				for (var i = 0; i<3; i++) addLife();
 
-				pc = document.createElement('IMG');
-				pc.src = "princessStanding.gif";
+				pc = document.createElement('DIV');
+				//pc.src = "princessStanding.gif";
 				pc.id = "pc";
 				pc.style.width = '20px';
 				pc.style.height = '40px';
 				pc.style.display = 'block';
+				pc.backgroundColor = 'green';
+
 				gameWindow.appendChild(pc);
 
 				pcDiv = document.getElementById('pcDiv');
 				pcDiv.style.width = '20px';
 				pcDiv.style.height = '40px';
 
-				npc_prince = document.getElementById('npc_prince');
+				npc_prince = document.createElement('DIV');
 				npc_prince.style.width = '10px';
 				npc_prince.style.height = '40px';
 				npc_prince.style.display = 'block';
+				npc_prince.backgroundColor = "yellow";
+				gameWindow.appendChild(npc_prince);
 
 				nextLevel();
 			}
@@ -270,7 +274,7 @@
 			}
 
 			function addSpike(x, y){
-				var spike = document.createElement('img');
+				var spike = document.createElement('DIV');
 				spike.className = 'spike';
 				spike.src = 'spike.gif';
 				
@@ -278,6 +282,7 @@
 				spike.style.top = y + 'px';
 				spike.style.width= '20px';
 				spike.style.height= '20px';
+				spike.backgroundColor = 'red';
 
 				spikes.push(spike);
 				platformDiv.appendChild(spike);
@@ -366,20 +371,20 @@
 				}
 
 				else if(level==2){
-					document.getElementById('music1').pause();
-					document.getElementById('music2').pause();
-					document.getElementById('sndTick').pause();
+					// document.getElementById('music1').pause();
+					// document.getElementById('music2').pause();
+					// document.getElementById('sndTick').pause();
 
-					document.getElementById('music2').currentTime = 0;
-					document.getElementById('music2').loop = true;
-					document.getElementById('music2').volume = 0.1;
+					// document.getElementById('music2').currentTime = 0;
+					// document.getElementById('music2').loop = true;
+					// document.getElementById('music2').volume = 0.1;
 
-					if(paused){
-						document.getElementById('music2').pause();
-					}
-					else{
-						document.getElementById('music2').play();
-					}
+					// if(paused){
+					// 	document.getElementById('music2').pause();
+					// }
+					// else{
+					// 	document.getElementById('music2').play();
+					// }
 
 
 					time = 75;
@@ -448,21 +453,21 @@
 				}
 
 				else if (level==3){
-					document.getElementById('music2').pause();
-					document.getElementById('music3').pause();
-					document.getElementById('sndTick').pause();
+					// document.getElementById('music2').pause();
+					// document.getElementById('music3').pause();
+					// document.getElementById('sndTick').pause();
 
-					document.getElementById('music1').play();
-					document.getElementById('music1').currentTime = 0;
-					document.getElementById('music1').loop = false;
-					document.getElementById('music1').onended = function sleep(){
-						document.getElementById('music1').pause(); 
-						document.getElementById('music3').currentTime = 0; 
-						document.getElementById('music3').play();
-						document.getElementById('music3').volume = 0.1;
-						document.getElementById('music3').loop = true;
-						document.getElementById('music3').volume = 0.1;
-					}
+					// document.getElementById('music1').play();
+					// document.getElementById('music1').currentTime = 0;
+					// document.getElementById('music1').loop = false;
+					// document.getElementById('music1').onended = function sleep(){
+					// 	document.getElementById('music1').pause(); 
+					// 	document.getElementById('music3').currentTime = 0; 
+					// 	document.getElementById('music3').play();
+					// 	document.getElementById('music3').volume = 0.1;
+					// 	document.getElementById('music3').loop = true;
+					// 	document.getElementById('music3').volume = 0.1;
+					// }
 
 					time = 90;
 					document.getElementById('stat').innerHTML= "Time " + time;
@@ -589,8 +594,8 @@
 				}
 
 				if (time - (count / 25)<10){
-					document.getElementById('sndTick').currentTime = 0;
-					document.getElementById('sndTick').play();
+					// document.getElementById('sndTick').currentTime = 0;
+					// document.getElementById('sndTick').play();
 				}
 
 				if (time - (count/25)==0){
@@ -603,13 +608,7 @@
 				
 				movement();
 
-				else if(parseInt(pc.style.top) > 400){
-					clearInterval(gameTimer);
-				
-					removeLife();
-					level--;
-					nextLevel();
-				}
+
 				for (var i = 0; i < spikes.length; i++) {
 					if(hittest(pc, spikes[i]) ){
 						clearInterval(gameTimer);
@@ -620,31 +619,31 @@
 				}
 				var pc_src = pc.src.split('/').pop();
 				
-				if(fallSpeed==0){
-					if(leftArrowDown || rightArrowDown){
-					if(pc_src != 'princessRunning.gif'){ pc.src = 'princessRunning.gif';}
-					}
-					else{
-						if(fallSpeed<=0) pc.src = 'princessStanding.gif';
-					}
-					if(leftArrowDown){
-						pc.className='flipHorizontal';
-					}
-					else{
-						pc.className='';
-					}
-				}
-				else if(fallSpeed<0){
-					pc.src = 'princessStanding.gif';
-				}
+				// if(fallSpeed==0){
+				// 	if(leftArrowDown || rightArrowDown){
+					// if(pc_src != 'princessRunning.gif'){ pc.src = 'princessRunning.gif';}
+					// }
+				// 	else{
+				// 		if(fallSpeed<=0) pc.src = 'princessStanding.gif';
+				// 	}
+				// 	if(leftArrowDown){
+				// 		pc.className='flipHorizontal';
+				// 	}
+				// 	else{
+				// 		pc.className='';
+				// 	}
+				// }
+				// else if(fallSpeed<0){
+				// 	pc.src = 'princessStanding.gif';
+				// }
 				
 			}
 
 			function removeLife(){
 
 				if(numLives>0){
-					document.getElementById('sndDie').currentTime = 0;
-					document.getElementById('sndDie').play();
+					// document.getElementById('sndDie').currentTime = 0;
+					// document.getElementById('sndDie').play();
 					numLives--;
 					lifebar.removeChild(lifebar.lastChild);
 				}
@@ -666,11 +665,11 @@
 				gameTimer = setInterval(gameloop, 42);
 				document.getElementById('pause').style.display='none';
 				//place audio here, replace sndLand with id of object.
-				if(document.getElementById('sndLand').volume==0){
-					document.getElementById('sndLand').play();
-				}
+				// if(document.getElementById('sndLand').volume==0){
+				// 	document.getElementById('sndLand').play();
+				// }
 
-				document.getElementById('sndLand').volume = 0.1;
+				// document.getElementById('sndLand').volume = 0.1;
 
 			}
 
@@ -688,7 +687,7 @@
 			<div id="pcDiv"></div>
 			
 			<div id="platforms">
-				<img src="prince.gif"id="npc_prince"></img>
+				<!-- <img src="prince.gif"id="npc_prince"></img> -->
 			</div>
 			<div id="btnContinue" onclick="nextLevel()">CONTINUE</div>
 			<div class="button" id="pause">PAUSED</div>
@@ -696,10 +695,10 @@
 
 
 		<div id="audio">
-			<audio id="sndLand" preload="auto">
+<!-- 			<audio id="sndLand" preload="auto">
 				<source src="audio/land.mp3">
 				<source src="audio/land.wav">
-			</audio>
+			</audio> -->
 		</div>
 		
 	</body>
