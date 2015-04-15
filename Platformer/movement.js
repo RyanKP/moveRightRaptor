@@ -1,5 +1,6 @@
+function movement(){
+	var pcTop = parseInt(pc.style.top);
 // HORIZONTAL MOVEMENT
-				
 
 				if(leftArrowDown){
 					pc.style.left = parseInt(pc.style.left) - 10 + 'px';
@@ -166,3 +167,77 @@
 					
 					
 				}
+}
+
+			document.addEventListener('keydown', function(event){
+				if(event.keyCode==37) leftArrowDown = true;
+				if(event.keyCode==39) rightArrowDown = true;
+				if(event.keyCode==38) upArrowDown = true;
+				if(event.keyCode==32){ 
+					spaceBarDown = true;
+					if(paused){
+						timeStart();
+					}
+					else{
+						paused = true;
+						clearInterval(gameTimer);
+						document.getElementById('pause').style.display = 'block';
+
+						if(!document.getElementById('music1').paused){
+							document.getElementById('music1').volume = 0;
+						}
+						if(!document.getElementById('music2').paused){
+							document.getElementById('music2').volume = 0;
+						}
+						if(!document.getElementById('music3').paused){
+							document.getElementById('music3').volume = 0;
+						}
+						if(!document.getElementById('sndLand').paused){
+							document.getElementById('sndLand').volume = 0;
+						}
+						if(!document.getElementById('sndDie').paused){
+							document.getElementById('sndDie').volume = 0;
+						}
+						if(!document.getElementById('get1').paused){
+							document.getElementById('get1').volume = 0;
+						}
+						if(!document.getElementById('get2').paused){
+							document.getElementById('get2').volume = 0;
+						}
+						if(!document.getElementById('get3').paused){
+							document.getElementById('get3').volume = 0;
+						}
+						if(document.getElementById('music1').volume==0){
+							document.getElementById('music1').pause();
+						}
+						if(document.getElementById('music2').volume==0){
+							document.getElementById('music2').pause();
+						}
+						if(document.getElementById('music3').volume==0){
+							document.getElementById('music3').pause();
+						}
+						if(document.getElementById('sndLand').volume==0){
+							document.getElementById('sndLand').pause();
+						}
+						if(document.getElementById('sndDie').volume==0){
+							document.getElementById('sndDie').pause();
+						}
+						if(document.getElementById('get1').volume==0){
+							document.getElementById('get1').pause();
+						}
+						if(document.getElementById('get2').volume==0){
+							document.getElementById('get2').pause();
+						}
+						if(document.getElementById('get3').volume==0){
+							document.getElementById('get3').pause();
+						}
+					}
+				}
+			});
+
+			document.addEventListener('keyup', function(event){
+				if(event.keyCode==37) leftArrowDown = false;
+				if(event.keyCode==39) rightArrowDown = false;
+				if(event.keyCode==38) upArrowDown = false;
+				if(event.keyCode==32) spaceBarDown = false;
+			});
