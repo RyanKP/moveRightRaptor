@@ -57,7 +57,7 @@ function movement(){
 						if(fallSpeed<0){
 							pc.style.top = parseInt(platforms[i].style.top) + parseInt(platforms[i].style.height) + 'px';
 							//pc.style.top = pcDiv.style.top;
-							fallSpeed*= -1;
+							fallSpeed = -1;
 						}
 						else{
 							pc.style.top = parseInt(platforms[i].style.top) - parseInt(pc.style.height) + 'px';
@@ -84,7 +84,7 @@ function movement(){
 						if(fallSpeed<0){
 							pc.style.top = parseInt(movingPlatforms[i].style.top) + parseInt(movingPlatforms[i].style.height) + 'px';
 							//pc.style.top = pcDiv.style.top;
-							fallSpeed*= -1;
+							fallSpeed = -1;
 						}
 						else{
 							pc.style.top = parseInt(movingPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';

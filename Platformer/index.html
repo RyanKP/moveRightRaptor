@@ -462,9 +462,9 @@
 				npc_prince.style.height = '40px';
 				npc_prince.style.display = 'block';
 
-				document.getElementById('get3').currentTime = 0;
-				document.getElementById('get3').play();
-				document.getElementById('get3').volume = 0.1;
+				// document.getElementById('get3').currentTime = 0;
+				// document.getElementById('get3').play();
+				// document.getElementById('get3').volume = 0.1;
 
 				nextLevel();
 			}
@@ -554,13 +554,13 @@
 
 				if(level==1){
 
-					document.getElementById('sndTick').pause();
-					document.getElementById('music1').pause();
-					document.getElementById('music3').pause();
-					document.getElementById('music1').volume = 0.1;
-					document.getElementById('music1').currentTime = 0;
-					document.getElementById('music1').loop = true;
-					document.getElementById('music1').play();
+					// document.getElementById('sndTick').pause();
+					// document.getElementById('music1').pause();
+					// document.getElementById('music3').pause();
+					// document.getElementById('music1').volume = 0.1;
+					// document.getElementById('music1').currentTime = 0;
+					// document.getElementById('music1').loop = true;
+					// document.getElementById('music1').play();
 
 					time = 60;
 
@@ -603,20 +603,20 @@
 				}
 
 				else if(level==2){
-					document.getElementById('music1').pause();
-					document.getElementById('music2').pause();
-					document.getElementById('sndTick').pause();
+					// document.getElementById('music1').pause();
+					// document.getElementById('music2').pause();
+					// document.getElementById('sndTick').pause();
 
-					document.getElementById('music2').currentTime = 0;
-					document.getElementById('music2').loop = true;
-					document.getElementById('music2').volume = 0.1;
+					// document.getElementById('music2').currentTime = 0;
+					// document.getElementById('music2').loop = true;
+					// document.getElementById('music2').volume = 0.1;
 
-					if(paused){
-						document.getElementById('music2').pause();
-					}
-					else{
-						document.getElementById('music2').play();
-					}
+					// if(paused){
+					// 	document.getElementById('music2').pause();
+					// }
+					// else{
+					// 	document.getElementById('music2').play();
+					// }
 
 
 					time = 75;
@@ -685,21 +685,21 @@
 				}
 
 				else if (level==3){
-					document.getElementById('music2').pause();
-					document.getElementById('music3').pause();
-					document.getElementById('sndTick').pause();
+					// document.getElementById('music2').pause();
+					// document.getElementById('music3').pause();
+					// document.getElementById('sndTick').pause();
 
-					document.getElementById('music1').play();
-					document.getElementById('music1').currentTime = 0;
-					document.getElementById('music1').loop = false;
-					document.getElementById('music1').onended = function sleep(){
-						document.getElementById('music1').pause(); 
-						document.getElementById('music3').currentTime = 0; 
-						document.getElementById('music3').play();
-						document.getElementById('music3').volume = 0.1;
-						document.getElementById('music3').loop = true;
-						document.getElementById('music3').volume = 0.1;
-					}
+					// document.getElementById('music1').play();
+					// document.getElementById('music1').currentTime = 0;
+					// document.getElementById('music1').loop = false;
+					// document.getElementById('music1').onended = function sleep(){
+					// 	document.getElementById('music1').pause(); 
+					// 	document.getElementById('music3').currentTime = 0; 
+					// 	document.getElementById('music3').play();
+					// 	document.getElementById('music3').volume = 0.1;
+					// 	document.getElementById('music3').loop = true;
+					// 	document.getElementById('music3').volume = 0.1;
+					// }
 
 					time = 90;
 					document.getElementById('stat').innerHTML= "Time " + time;
@@ -818,9 +818,6 @@
 			}
 
 			function gameloop(){
-				
-
-				//pc.style.top = pcDiv.style.top;
 
 				count++;
 
@@ -828,10 +825,10 @@
 					document.getElementById('stat').innerHTML= "Time " + (time - (count / 25));
 				}
 
-				if (time - (count / 25)<10){
-					document.getElementById('sndTick').currentTime = 0;
-					document.getElementById('sndTick').play();
-				}
+				// if (time - (count / 25)<10){
+				// 	document.getElementById('sndTick').currentTime = 0;
+				// 	document.getElementById('sndTick').play();
+				// }
 
 				if (time - (count/25)==0){
 					clearInterval(gameTimer);
@@ -873,14 +870,14 @@
 				
 					clearInterval(gameTimer);
 					if(level==3){
-						document.getElementById('get2').currentTime = 0;
-						document.getElementById('get2').play();
+						// document.getElementById('get2').currentTime = 0;
+						// document.getElementById('get2').play();
 						gameWindow.innerHTML = '<br><br>A Winner Is You!';
 						gameWindow.className = 'msgGameOver';
 					}
 					else{
-						document.getElementById('get1').currentTime = 0;
-						document.getElementById('get1').play();
+						// document.getElementById('get1').currentTime = 0;
+						// document.getElementById('get1').play();
 						document.getElementById('getNot').style.display = 'block';
 						document.getElementById('btnContinue').style.display = 'block';
 						clearInterval(gameTimer);
@@ -927,8 +924,8 @@
 			function removeLife(){
 
 				if(numLives>0){
-					document.getElementById('sndDie').currentTime = 0;
-					document.getElementById('sndDie').play();
+					// document.getElementById('sndDie').currentTime = 0;
+					// document.getElementById('sndDie').play();
 					numLives--;
 					lifebar.removeChild(lifebar.lastChild);
 				}
@@ -950,38 +947,38 @@
 				gameTimer = setInterval(gameloop, 42);
 				document.getElementById('pause').style.display='none';
 				
-				if(document.getElementById('music1').volume==0){
-					document.getElementById('music1').play();
-				}
-				if(document.getElementById('music2').volume==0){
-					document.getElementById('music2').play();
-				}
-				if(document.getElementById('music3').volume==0){
-					document.getElementById('music3').play();
-				}
-				if(document.getElementById('sndLand').volume==0){
-					document.getElementById('sndLand').play();
-				}
-				if(document.getElementById('sndDie').volume==0){
-					document.getElementById('sndDie').play();
-				}
-				if(document.getElementById('get1').volume==0){
-					document.getElementById('get1').play();
-				}
-				if(document.getElementById('get2').volume==0){
-					document.getElementById('get2').play();
-				}
-				if(document.getElementById('get3').volume==0){
-					document.getElementById('get3').play();
-				}
-				document.getElementById('music1').volume = 0.1;
-				document.getElementById('music2').volume = 0.1;
-				document.getElementById('music3').volume = 0.1;
-				document.getElementById('sndLand').volume = 0.1;
-				document.getElementById('sndDie').volume = 0.1;
-				document.getElementById('get1').volume = 0.1;
-				document.getElementById('get2').volume = 0.1;
-				document.getElementById('get3').volume = 0.1;
+			// 	if(document.getElementById('music1').volume==0){
+			// 		document.getElementById('music1').play();
+			// 	}
+			// 	if(document.getElementById('music2').volume==0){
+			// 		document.getElementById('music2').play();
+			// 	}
+			// 	if(document.getElementById('music3').volume==0){
+			// 		document.getElementById('music3').play();
+			// 	}
+			// 	if(document.getElementById('sndLand').volume==0){
+			// 		document.getElementById('sndLand').play();
+			// 	}
+			// 	if(document.getElementById('sndDie').volume==0){
+			// 		document.getElementById('sndDie').play();
+			// 	}
+			// 	if(document.getElementById('get1').volume==0){
+			// 		document.getElementById('get1').play();
+			// 	}
+			// 	if(document.getElementById('get2').volume==0){
+			// 		document.getElementById('get2').play();
+			// 	}
+			// 	if(document.getElementById('get3').volume==0){
+			// 		document.getElementById('get3').play();
+			// 	}
+			// 	document.getElementById('music1').volume = 0.1;
+			// 	document.getElementById('music2').volume = 0.1;
+			// 	document.getElementById('music3').volume = 0.1;
+			// 	document.getElementById('sndLand').volume = 0.1;
+			// 	document.getElementById('sndDie').volume = 0.1;
+			// 	document.getElementById('get1').volume = 0.1;
+			// 	document.getElementById('get2').volume = 0.1;
+			// 	document.getElementById('get3').volume = 0.1;
 			}
 			
 			
@@ -1007,7 +1004,7 @@
 		</div>
 
 
-		<div id="audio">
+<!-- 		<div id="audio">
 			<audio id="sndLand" preload="auto">
 				<source src="audio/land.mp3">
 				<source src="audio/land.wav">
@@ -1044,7 +1041,7 @@
 				<source src="audio/youDidit.mp3">
 				<source src="audio/youDidit.wav">
 			</audio>
-		</div>
+		</div> -->
 		
 	</body>
 </html>
