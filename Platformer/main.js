@@ -201,6 +201,9 @@ function nextLevel(){
 	for(var i=0; i<hMPlatforms.length; i++){
 		platformDiv.removeChild(hMPlatforms[i]);
 	}
+	for(var i=0; i<vMPlatforms.length; i++){
+		platformDiv.removeChild(vMPlatforms[i]);
+	}
 
 	for(var i=0; i<spikes.length; i++){
 		platformDiv.removeChild(spikes[i]);
@@ -518,6 +521,26 @@ function gameloop(){
 			hMPlatforms[i].speed *= -1;
 			hMPlatforms[i].style.left = hMPlatforms[i].min + 'px';
 			hMPRight[i] = true;
+		}
+	}
+	for (var i = 0; i<vMPlatforms.length; i++){
+		vMPlatforms[i].style.top = parseInt(vMPlatforms[i].style.top) - vMPlatforms[i].speed + 'px';
+		if(vMPlatforms[i].speed<0){
+			vMPUp[i] = true;
+		}
+		else{
+			vMPUp[i] = false;
+		}
+
+		if(parseInt(vMPlatforms[i].style.top) >= vMPlatforms[i].max){
+			vMPlatforms[i].speed *= -1;
+			vMPlatforms[i].style.top = vMPlatforms[i].max + 'px';
+			vMPUp[i] = false;
+		}
+		if (parseInt(vMPlatforms[i].style.top) <= vMPlatforms[i].min){
+			vMPlatforms[i].speed *= -1;
+			vMPlatforms[i].style.top = vMPlatforms[i].min + 'px';
+			vMPUp[i] = true;
 		}
 	}
 	for (var i = 0; i<enemies.length; i++){

@@ -12,6 +12,9 @@ function movement(){
 		for (var i=0; i<hMPlatforms.length; i++){
 			if( hittest(pc, hMPlatforms[i]) ) sideHit = true;
 		}
+		for (var i=0; i<vMPlatforms.length; i++){
+			if( hittest(pc, vMPlatforms[i]) ) sideHit = true;
+		}
 		pc.style.left = parseInt(pc.style.left) + 10 + 'px';
 
 		if( ! sideHit ){
@@ -29,6 +32,9 @@ function movement(){
 		}
 		for(var i=0; i<hMPlatforms.length; i++){
 			if( hittest(pc, hMPlatforms[i]) )sideHit = true;
+		}
+		for(var i=0; i<vMPlatforms.length; i++){
+			if( hittest(pc, vMPlatforms[i]) )sideHit = true;
 		}
 		pc.style.left = parseInt(pc.style.left) - 10 + 'px';
 		
@@ -152,6 +158,94 @@ function movement(){
 							platformDiv.style.left = parseInt(platformDiv.style.left) - 0 + 'px';
 						}
 					}
+				}
+				
+
+				if(upArrowDown) {
+					fallSpeed = -25;
+					// document.getElementById('sndLand').currentTime = 0;
+					// document.getElementById('sndLand').volume = 0.1;
+					// document.getElementById('sndLand').play();
+				} 
+				else{
+					fallSpeed = 0;
+				}
+			
+		}
+	}
+	for(var i=0; i<vMPlatforms.length; i++){
+		if( hittest(pc, vMPlatforms[i]) ){
+			if(fallSpeed<0){
+				pc.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) + 'px';
+				//pc.style.top = pcDiv.style.top;
+				fallSpeed = -1;
+			}
+			else{
+				pc.style.top = parseInt(vMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
+				//pc.style.top = pcDiv.style.top;
+					if(vMPUp[i]){
+						platformDiv.style.top = parseInt(platformDiv.style.top) - 5 +'px';
+						// var sideHit = false;
+
+						// pc.style.left = parseInt(pc.style.left) - 5 + 'px';
+						
+						// for(var j=0; j<platforms.length; j++){
+						// 	if( hittest(pc, platforms[j]) ) sideHit = true;
+						// }
+						// for (var j=0; j<hMPlatforms.length; j++){
+						// 	if( hittest(pc, hMPlatforms[j]) ) sideHit = true;
+						// }
+						// for (var j=0; j<vMPlatforms.length; j++){
+						// 	if( hittest(pc, vMPlatforms[j]) ) sideHit = true;
+						// }
+						// pc.style.left = parseInt(pc.style.left) + 5 + 'px';
+
+						// pc.style.left = parseInt(pc.style.left) + 5 + 'px';
+
+						
+						// for(var j=0; j<platforms.length; j++){
+						// 	if( hittest(pc, platforms[j]) ) sideHit = true;
+						// }
+						// for (var j=0; j<hMPlatforms.length; j++){
+						// 	if( hittest(pc, hMPlatforms[j]) ) sideHit = true;
+						// }
+						// for (var j=0; j<vMPlatforms.length; j++){
+						// 	if( hittest(pc, vMPlatforms[j]) ) sideHit = true;
+						// }
+						// pc.style.left = parseInt(pc.style.left) - 5 + 'px';
+					}
+					else{
+						platformDiv.style.top = parseInt(platformDiv.style.top) + 5 + 'px';
+					// 	var sideHit = false;
+
+					// 	pc.style.left = parseInt(pc.style.left) + 5 + 'px';
+
+						
+					// 	for(var j=0; j<platforms.length; j++){
+					// 		if( hittest(pc, platforms[j]) ) sideHit = true;
+					// 	}
+					// 	for (var j=0; j<hMPlatforms.length; j++){
+					// 		if( hittest(pc, hMPlatforms[j]) ) sideHit = true;
+					// 	}
+					// 	pc.style.left = parseInt(pc.style.left) - 5 + 'px';
+
+					// 	pc.style.left = parseInt(pc.style.left) - 5 + 'px';
+
+					// 	for(var j=0; j<platforms.length; j++){
+					// 		if( hittest(pc, platforms[j]) ) sideHit = true;
+					// 	}
+					// 	for (var j=0; j<hMPlatforms.length; j++){
+					// 		if( hittest(pc, hMPlatforms[j]) ) sideHit = true;
+					// 	}
+					// 	pc.style.left = parseInt(pc.style.left) + 5 + 'px';
+
+					// 	if(! sideHit){
+					// 		platformDiv.style.left = parseInt(platformDiv.style.left) + 5 + 'px';
+					// 	}
+					// 	else{
+					// 		platformDiv.style.left = parseInt(platformDiv.style.left) - 0 + 'px';
+					// 	}
+					// }
 				}
 				
 
