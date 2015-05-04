@@ -177,14 +177,36 @@ function movement(){
 		if( hittest(pc, vMPlatforms[i]) ){
 			if(fallSpeed<0){
 				pc.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) + 'px';
-				//pc.style.top = pcDiv.style.top;
-				fallSpeed = -1;
+				if(vMPUp[i]){
+					fallSpeed = 1;
+				}
+				else{
+					fallSpeed = 1 + vMPlatforms[i].speed;
+				}
 			}
 			else{
+				vMPlatforms[i].style.top = parseInt(vMPlatforms[i].style.top) - vMPlatforms[i].speed + 'px';
+				if(vMPlatforms[i].speed<0){
+					vMPUp[i] = true;
+				}
+				else{
+					vMPUp[i] = false;
+				}
+
+				if(parseInt(vMPlatforms[i].style.top) >= vMPlatforms[i].max){
+					vMPlatforms[i].speed *= -1;
+					vMPlatforms[i].style.top = vMPlatforms[i].max + 'px';
+					vMPUp[i] = false;
+				}
+				if (parseInt(vMPlatforms[i].style.top) <= vMPlatforms[i].min){
+					vMPlatforms[i].speed *= -1;
+					vMPlatforms[i].style.top = vMPlatforms[i].min + 'px';
+					vMPUp[i] = true;
+				}
 				pc.style.top = parseInt(vMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 					if(vMPUp[i]){
-						platformDiv.style.top = parseInt(platformDiv.style.top) - 5 +'px';
+						// platformDiv.style.top = parseInt(platformDiv.style.top) - 5 +'px';
 						// var sideHit = false;
 
 						// pc.style.left = parseInt(pc.style.left) - 5 + 'px';
@@ -215,7 +237,7 @@ function movement(){
 						// pc.style.left = parseInt(pc.style.left) - 5 + 'px';
 					}
 					else{
-						platformDiv.style.top = parseInt(platformDiv.style.top) + 5 + 'px';
+						//platformDiv.style.top = parseInt(platformDiv.style.top) + 5 + 'px';
 					// 	var sideHit = false;
 
 					// 	pc.style.left = parseInt(pc.style.left) + 5 + 'px';
@@ -258,6 +280,26 @@ function movement(){
 				else{
 					fallSpeed = 0;
 				}
+			}
+		}
+		else{
+			vMPlatforms[i].style.top = parseInt(vMPlatforms[i].style.top) - vMPlatforms[i].speed + 'px';
+			if(vMPlatforms[i].speed<0){
+				vMPUp[i] = true;
+			}
+			else{
+				vMPUp[i] = false;
+			}
+
+			if(parseInt(vMPlatforms[i].style.top) >= vMPlatforms[i].max){
+				vMPlatforms[i].speed *= -1;
+				vMPlatforms[i].style.top = vMPlatforms[i].max + 'px';
+				vMPUp[i] = false;
+			}
+			if (parseInt(vMPlatforms[i].style.top) <= vMPlatforms[i].min){
+				vMPlatforms[i].speed *= -1;
+				vMPlatforms[i].style.top = vMPlatforms[i].min + 'px';
+				vMPUp[i] = true;
 			}
 		}
 	}

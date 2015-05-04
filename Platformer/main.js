@@ -210,6 +210,7 @@ function nextLevel(){
 	}
 
 	platforms = new Array();
+	vMPlatforms = new Array();
 	hMPlatforms = new Array();
 
 	spikes = new Array();
@@ -232,7 +233,7 @@ function nextLevel(){
 		npc_prince.style.top = '340px';
 
 		addVMPlatform(100, -5, 420, 20, 50, 200);
-		addHMPlatform(100, -5, 20, 420, 50, 200);
+		//addHMPlatform(100, -5, 20, 420, 50, 200);
 		addPlatform(100, -5, 20, 420);
 		addPlatform(100, 380, 115, 20);
 		addPlatform(550, 280, 150, 20);
@@ -525,24 +526,24 @@ function gameloop(){
 		}
 	}
 	for (var i = 0; i<vMPlatforms.length; i++){
-		vMPlatforms[i].style.top = parseInt(vMPlatforms[i].style.top) - vMPlatforms[i].speed + 'px';
-		if(vMPlatforms[i].speed<0){
-			vMPUp[i] = true;
-		}
-		else{
-			vMPUp[i] = false;
-		}
+		// vMPlatforms[i].style.top = parseInt(vMPlatforms[i].style.top) - vMPlatforms[i].speed + 'px';
+		// if(vMPlatforms[i].speed<0){
+		// 	vMPUp[i] = true;
+		// }
+		// else{
+		// 	vMPUp[i] = false;
+		// }
 
-		if(parseInt(vMPlatforms[i].style.top) >= vMPlatforms[i].max){
-			vMPlatforms[i].speed *= -1;
-			vMPlatforms[i].style.top = vMPlatforms[i].max + 'px';
-			vMPUp[i] = false;
-		}
-		if (parseInt(vMPlatforms[i].style.top) <= vMPlatforms[i].min){
-			vMPlatforms[i].speed *= -1;
-			vMPlatforms[i].style.top = vMPlatforms[i].min + 'px';
-			vMPUp[i] = true;
-		}
+		// if(parseInt(vMPlatforms[i].style.top) >= vMPlatforms[i].max){
+		// 	vMPlatforms[i].speed *= -1;
+		// 	vMPlatforms[i].style.top = vMPlatforms[i].max + 'px';
+		// 	vMPUp[i] = false;
+		// }
+		// if (parseInt(vMPlatforms[i].style.top) <= vMPlatforms[i].min){
+		// 	vMPlatforms[i].speed *= -1;
+		// 	vMPlatforms[i].style.top = vMPlatforms[i].min + 'px';
+		// 	vMPUp[i] = true;
+		// }
 	}
 	for (var i = 0; i<enemies.length; i++){
 		enemies[i].style.left = parseInt(enemies[i].style.left) - enemies[i].speed + 'px';

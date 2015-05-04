@@ -1,7 +1,7 @@
 
 function hittest(a, b){
 	var aX1 = parseInt(a.style.left) - parseInt(document.getElementById('platforms').style.left);
-	var aY1 = parseInt(a.style.top) - parseInt(document.getElementById('platforms').style.top);
+	var aY1 = parseInt(a.style.top); //- parseInt(document.getElementById('platforms').style.top);
 	var aX2 = aX1 + parseInt(a.style.width)-1;
 	var aY2 = aY1;
 	var aX3 = aX1;
