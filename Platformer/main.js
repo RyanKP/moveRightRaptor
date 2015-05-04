@@ -136,7 +136,7 @@ function addVMPlatform(x, y, w, h, min, max){
 	vMP.min = min;
 	vMP.max = max;
 
-	vMPRight.push(false);
+	vMPUp.push(false);
 
 	vMPlatforms.push(vMP);
 	platformDiv.appendChild(vMP);
@@ -231,6 +231,7 @@ function nextLevel(){
 		npc_prince.style.left = '3000px';
 		npc_prince.style.top = '340px';
 
+		addVMPlatform(100, -5, 420, 20, 50, 200);
 		addHMPlatform(100, -5, 20, 420, 50, 200);
 		addPlatform(100, -5, 20, 420);
 		addPlatform(100, 380, 115, 20);

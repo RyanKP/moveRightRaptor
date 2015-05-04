@@ -258,7 +258,7 @@ function movement(){
 				else{
 					fallSpeed = 0;
 				}
-			
+			}
 		}
 	}
 }
@@ -335,3 +335,6 @@ function movement(){
 				if(event.keyCode==38) upArrowDown = false;
 				if(event.keyCode==32) spaceBarDown = false;
 			});
+
+
+
