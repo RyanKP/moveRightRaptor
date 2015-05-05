@@ -176,12 +176,12 @@ function movement(){
 	for(var i=0; i<vMPlatforms.length; i++){
 		if( hittest(pc, vMPlatforms[i]) ){
 			if(fallSpeed<0){
-				pc.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) + 'px';
+				fallSpeed = -1;
 				if(vMPUp[i]){
-					fallSpeed = 1;
+					pc.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
 				}
 				else{
-					fallSpeed = 1 + vMPlatforms[i].speed;
+					pc.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) + parseInt(vMPlatforms[i].speed) + 'px';
 				}
 			}
 			else{
@@ -302,6 +302,12 @@ function movement(){
 				vMPUp[i] = true;
 			}
 		}
+	}
+	if(parseInt(pc.style.top)<200){
+		platformDiv.style.top = parseInt(pc.style.top) + 200 + 'px'; 
+	}
+	else{
+		platform.style.top = 0 + 'px';
 	}
 }
 

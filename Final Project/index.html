@@ -158,22 +158,24 @@
 			var pcDiv;
 
 			var output;
-			var leftArrowDown = false;
-			var rightArrowDown = false;
-			var upArrowDown = false;
-			var spaceBarDown = false;
+
 			var gameTimer;
 			var mX;
 			var count = 0;
-			var mPRight;
-			var mPLeft;
+			var enemy;
 			var time;
 
 			var paused;
 
 			var platforms = new Array();
-			var movingPlatforms = new Array();
+			var hMPlatforms = new Array();
+			var vMPlatforms = new Array();
+			var vMPUp = new Array();
+			var hMPRight = new Array();
+			var enemyRight = new Array();
 			var spikes = new Array();
+			var enemies = new Array();
+
 
 			var platformDiv;
 
@@ -185,6 +187,10 @@
 
 			var lifebar;
 			var numLives = 0;
+			var leftArrowDown = false;
+			var rightArrowDown = false;
+			var upArrowDown = false;
+			var spaceBarDown = false;
 
 			function addLife(){
 				numLives++;
@@ -238,6 +244,10 @@
 				// npc_prince.style.display = 'block';
 				// npc_prince.backgroundColor = "yellow";
 
+				// document.getElementById('get3').currentTime = 0;
+				// document.getElementById('get3').play();
+				// document.getElementById('get3').volume = 0.1;
+
 				nextLevel();
 			}
 
@@ -253,21 +263,40 @@
 				platformDiv.appendChild(p);
 			}
 
-			function addMovingPlatform(x, y, w, h, min, max){
+			function addHMPlatform(x, y, w, h, min, max){
 
-				var mP = document.createElement('DIV');
-				mP.className = 'platform';
-				mP.style.left = x + 'px';
-				mP.style.top = y + 'px';
-				mP.style.width = w + 'px';
-				mP.style.height = h + 'px';
-				mP.speed = 5;
-				mP.min = min;
-				mP.max = max;
+				var hMP = document.createElement('DIV');
+				hMP.className = 'platform';
+				hMP.style.left = x + 'px';
+				hMP.style.top = y + 'px';
+				hMP.style.width = w + 'px';
+				hMP.style.height = h + 'px';
+				hMP.speed = 5;
+				hMP.min = min;
+				hMP.max = max;
 
+				hMPRight.push(false);
 
-				movingPlatforms.push(mP);
-				platformDiv.appendChild(mP);			
+				hMPlatforms.push(hMP);
+				platformDiv.appendChild(hMP);			
+			}
+
+			function addVMPlatform(x, y, w, h, min, max){
+				var vMP = document.createElement('DIV');
+				vMP.className = 'platform';
+				vMP.style.left = x + 'px';
+				vMP.style.top = y + 'px';
+				vMP.style.width = w + 'px';
+				vMP.style.height = h + 'px';
+				vMP.speed = 5;
+				vMP.min = min;
+				vMP.max = max;
+
+				vMPUp.push(false);
+
+				vMPlatforms.push(vMP);
+				platformDiv.appendChild(vMP);
+
 			}
 
 			function addSpike(x, y){
@@ -285,11 +314,26 @@
 				platformDiv.appendChild(spike);
 			}
 
+			function addMovingEnemy(x, y, min, max){
+				enemy = document.createElement('img');
+				enemy.className = 'spike';
+				enemy.src = 'spike.gif';
+				enemy.style.left = x + 'px';
+				enemy.style.top = y + 'px';
+				enemy.style.width= '20px';
+				enemy.style.height= '20px';
+
+				enemyRight = false;
+
+				enemies.push(enemy);
+				platformDiv.appendChild(enemy);
+			}
+
 			function nextLevel(){
-				
+	
 
 				document.getElementById('btnContinue').style.display = 'none';
-				//document.getElementById('getNot').style.display = 'none';
+				document.getElementById('getNot').style.display = 'none';
 				
 				level++;
 				document.getElementById('level').innerHTML="Level " + level;
@@ -301,9 +345,7 @@
 				rightArrowDown = false;
 				upArrowDown = false;
 
-				pc = document.getElementById('pc');
-
-				pc.style.left = 190 + "px";
+				pc.style.left = '190px';
 				pc.style.top = '0px';
 				pcDiv.style.left = '190px';
 				pcDiv.style.top = '0px';
@@ -313,8 +355,11 @@
 				for(var i=0; i<platforms.length; i++){
 					platformDiv.removeChild(platforms[i]);
 				}
-				for(var i=0; i<movingPlatforms.length; i++){
-					platformDiv.removeChild(movingPlatforms[i]);
+				for(var i=0; i<hMPlatforms.length; i++){
+					platformDiv.removeChild(hMPlatforms[i]);
+				}
+				for(var i=0; i<vMPlatforms.length; i++){
+					platformDiv.removeChild(vMPlatforms[i]);
 				}
 
 				for(var i=0; i<spikes.length; i++){
@@ -322,15 +367,21 @@
 				}
 
 				platforms = new Array();
-				movingPlatforms = new Array();
+				vMPlatforms = new Array();
+				hMPlatforms = new Array();
 
 				spikes = new Array();
 				
-				gameWindow.appendChild(pc);
-				gameWindow.appendChild(pcDiv);
-				gameWindow.appendChild(npc_prince);
 
 				if(level==1){
+
+					// document.getElementById('sndTick').pause();
+					// document.getElementById('music1').pause();
+					// document.getElementById('music3').pause();
+					// document.getElementById('music1').volume = 0.1;
+					// document.getElementById('music1').currentTime = 0;
+					// document.getElementById('music1').loop = true;
+					// document.getElementById('music1').play();
 
 					time = 60;
 
@@ -338,10 +389,12 @@
 					npc_prince.style.left = '3000px';
 					npc_prince.style.top = '340px';
 
+					addVMPlatform(100, -5, 420, 20, 50, 200);
+					//addHMPlatform(100, -5, 20, 420, 50, 200);
 					addPlatform(100, -5, 20, 420);
 					addPlatform(100, 380, 115, 20);
 					addPlatform(550, 280, 150, 20);
-					addMovingPlatform(550, 380, 100, 50, 215, 3000);
+					addHMPlatform(550, 380, 100, 50, 215, 3000);
 					addPlatform(480, 360, 20, 50);
 					addPlatform(880, 360, 20, 50);
 					addPlatform(1200, 340, 20, 80);
@@ -409,7 +462,7 @@
 					addPlatform(1580, 230, 20, 50);
 					addPlatform(1700, 95, 100, 20);
 					addPlatform(2040, 115, 70, 20);
-					addMovingPlatform(1190, 380, 50, 40, 1180, 2200);
+					addHMPlatform(1190, 380, 50, 40, 1180, 2200);
 					addPlatform(2330, 80, 20, 230)
 					addPlatform(2330, 290, 140, 30);
 					addPlatform(2380, -500, 20, 750);
@@ -481,7 +534,7 @@
 					addPlatform(900, 300, 100, 100);
 					addPlatform(1100, 300, 50, 100);
 					addPlatform(1300, 300, 100, 100);
-					addMovingPlatform(1600, 390, 50, 20, 1600, 2000);
+					addHMPlatform(1600, 390, 50, 20, 1600, 2000);
 					addPlatform(1950, 380, 100, 20);
 
 					//puzzle
@@ -595,10 +648,10 @@
 					document.getElementById('stat').innerHTML= "Time " + (time - (count / 25));
 				}
 
-				if (time - (count / 25)<10){
-					// document.getElementById('sndTick').currentTime = 0;
-					// document.getElementById('sndTick').play();
-				}
+				// if (time - (count / 25)<10){
+				// 	document.getElementById('sndTick').currentTime = 0;
+				// 	document.getElementById('sndTick').play();
+				// }
 
 				if (time - (count/25)==0){
 					clearInterval(gameTimer);
@@ -607,7 +660,89 @@
 					nextLevel();
 					
 				}
+				
 
+				for (var i = 0; i<hMPlatforms.length; i++){
+					hMPlatforms[i].style.left = parseInt(hMPlatforms[i].style.left) - hMPlatforms[i].speed + 'px';
+					if(hMPlatforms[i].speed<0){
+						hMPRight[i] = true;
+					}
+					else{
+						hMPRight[i] = false;
+					}
+
+					if(parseInt(hMPlatforms[i].style.left) >= hMPlatforms[i].max){
+						hMPlatforms[i].speed *= -1;
+						hMPlatforms[i].style.left = hMPlatforms[i].max + 'px';
+						hMPRight[i] = false;
+					}
+					if (parseInt(hMPlatforms[i].style.left) <= hMPlatforms[i].min){
+						hMPlatforms[i].speed *= -1;
+						hMPlatforms[i].style.left = hMPlatforms[i].min + 'px';
+						hMPRight[i] = true;
+					}
+				}
+				for (var i = 0; i<vMPlatforms.length; i++){
+					// vMPlatforms[i].style.top = parseInt(vMPlatforms[i].style.top) - vMPlatforms[i].speed + 'px';
+					// if(vMPlatforms[i].speed<0){
+					// 	vMPUp[i] = true;
+					// }
+					// else{
+					// 	vMPUp[i] = false;
+					// }
+
+					// if(parseInt(vMPlatforms[i].style.top) >= vMPlatforms[i].max){
+					// 	vMPlatforms[i].speed *= -1;
+					// 	vMPlatforms[i].style.top = vMPlatforms[i].max + 'px';
+					// 	vMPUp[i] = false;
+					// }
+					// if (parseInt(vMPlatforms[i].style.top) <= vMPlatforms[i].min){
+					// 	vMPlatforms[i].speed *= -1;
+					// 	vMPlatforms[i].style.top = vMPlatforms[i].min + 'px';
+					// 	vMPUp[i] = true;
+					// }
+				}
+				for (var i = 0; i<enemies.length; i++){
+					enemies[i].style.left = parseInt(enemies[i].style.left) - enemies[i].speed + 'px';
+					if(enemies[i].speed<0){
+						enemyRight[i] = true;
+					}
+					else{
+						enemyRight[i] = false;
+					}
+
+					if(parseInt(enemies[i].style.left) >= enemies[i].max){
+						enemies[i].speed *= -1;
+						enemies[i].style.left = enemies[i].max + 'px';
+						enemyRight[i] = false;
+					}
+					if (parseInt(enemies[i].style.left) <= enemies[i].min){
+						enemies[i].speed *= -1;
+						enemies[i].style.left = enemies[i].min + 'px';
+						enemyRight[i] = true;
+					}
+				}
+
+				movement();
+
+				if(hittest(pc, npc_prince) ){
+				
+					clearInterval(gameTimer);
+					if(level==3){
+						// document.getElementById('get2').currentTime = 0;
+						// document.getElementById('get2').play();
+						gameWindow.innerHTML = '<br><br>A Winner Is You!';
+						gameWindow.className = 'msgGameOver';
+					}
+					else{
+						// document.getElementById('get1').currentTime = 0;
+						// document.getElementById('get1').play();
+						document.getElementById('getNot').style.display = 'block';
+						document.getElementById('btnContinue').style.display = 'block';
+						clearInterval(gameTimer);
+						
+					}
+				}
 				else if(parseInt(pc.style.top) > 400){
 					clearInterval(gameTimer);
 				
@@ -615,10 +750,6 @@
 					level--;
 					nextLevel();
 				}
-				
-				movement();
-
-
 				for (var i = 0; i < spikes.length; i++) {
 					if(hittest(pc, spikes[i]) ){
 						clearInterval(gameTimer);
@@ -627,12 +758,12 @@
 						nextLevel();
 					}
 				}
-				var pc_src = pc.src.split('/').pop();
+				//var pc_src = pc.src.split('/').pop();
 				
 				// if(fallSpeed==0){
 				// 	if(leftArrowDown || rightArrowDown){
-					// if(pc_src != 'princessRunning.gif'){ pc.src = 'princessRunning.gif';}
-					// }
+				// 	if(pc_src != 'princessRunning.gif'){ pc.src = 'princessRunning.gif';}
+				// 	}
 				// 	else{
 				// 		if(fallSpeed<=0) pc.src = 'princessStanding.gif';
 				// 	}
