@@ -71,8 +71,8 @@ function init(){
 	lifebar = document.getElementById('lifebar');
 	for (var i = 0; i<3; i++) addLife();
 
-	pc = document.createElement('IMG');
-	pc.src = "princessStanding.gif";
+	pc = document.createElement('DIV');
+	//pc.src = "princessStanding.gif";
 	pc.id = "pc";
 	pc.style.width = '20px';
 	pc.style.height = '40px';
