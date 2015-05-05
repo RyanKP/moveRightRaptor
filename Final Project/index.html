@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>Platformer</title>
+		<title>Move Right Raptor</title>
 		<script src="myGameLibrary_v2.js"></script>
 		<script src="gameplay.js"></script>
 
@@ -9,15 +9,15 @@
 			
 			#gameWindow{
 				position: relative;
-				width: 800px;
-				height: 400px;
+				width: 1280px;
+				height: 720px;
 				background-color: rgb(230, 230, 180);
 				overflow: hidden;
 			}
 
 			#pc{
 				position: absolute;
-				//display: none;
+				display: block;
 				-webkit-touch-callout: none;
 				-webkit-user-select: none;
 				-khtml-user-select: none;
@@ -221,22 +221,22 @@
 				for (var i = 0; i<3; i++) addLife();
 
 				pc = document.createElement('DIV');
-				//pc.src = "princessStanding.gif";
+				pc.src = "../art/pc_placeholder.png";
 				pc.id = "pc";
-				pc.style.width = '20px';
-				pc.style.height = '40px';
+				pc.style.width = '74px';
+				pc.style.height = '50px';
 				pc.style.display = 'block';
-				pc.backgroundColor = 'green';
+				//pc.backgroundColor = 'green';
 
 				pcDiv = document.getElementById('pcDiv');
-				pcDiv.style.width = '20px';
-				pcDiv.style.height = '40px';
+				pcDiv.style.width = '74px';
+				pcDiv.style.height = '50px';
 
-				npc_prince = document.createElement('DIV');
-				npc_prince.style.width = '10px';
-				npc_prince.style.height = '40px';
-				npc_prince.style.display = 'block';
-				npc_prince.backgroundColor = "yellow";
+				// npc_prince = document.createElement('DIV');
+				// npc_prince.style.width = '10px';
+				// npc_prince.style.height = '40px';
+				// npc_prince.style.display = 'block';
+				// npc_prince.backgroundColor = "yellow";
 
 				nextLevel();
 			}
@@ -688,14 +688,14 @@
 			
 		</script>
 	</head>
-	<body>
+	<body onload=init"()">
 
 		<div id="gameWindow">
 			<div onclick = "win()" id="stat"></div>
 			<div id="level">Level</div>
 			<div id="lifebar"></div>
 			<div id="pcDiv"></div>
-			
+
 			<div id="platforms">
 				<!-- <img src="prince.gif"id="npc_prince"></img> -->
 			</div>
