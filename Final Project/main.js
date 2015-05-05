@@ -236,7 +236,7 @@ function nextLevel(){
 		//addHMPlatform(100, -5, 20, 420, 50, 200);
 		addPlatform(100, -5, 20, 420);
 		addPlatform(100, 380, 115, 20);
-		addPlatform(550, 280, 150, 20);
+		addPlatform(550, 200, 150, 20);
 		addHMPlatform(550, 380, 100, 50, 215, 3000);
 		addPlatform(480, 360, 20, 50);
 		addPlatform(880, 360, 20, 50);
@@ -620,7 +620,7 @@ function gameloop(){
 	// else if(fallSpeed<0){
 	// 	pc.src = 'princessStanding.gif';
 	// }
-	
+
 }
 
 function removeLife(){

@@ -46,7 +46,7 @@ function movement(){
 
 	// VERTICAL MOVEMENT
 	if (fallSpeed>0){
-		pc.src = "princessFall.gif";
+		//pc.src = "princessFall.gif";
 	}
 
 
@@ -302,12 +302,13 @@ function movement(){
 				vMPUp[i] = true;
 			}
 		}
-	}
-	if(parseInt(pc.style.top)<200){
-		platformDiv.style.top = parseInt(pc.style.top) + 200 + 'px'; 
-	}
-	else{
-		platform.style.top = 0 + 'px';
+		if(parseInt(pc.style.top)<=200){
+			platformDiv.style.top =  200 - parseInt(pc.style.top) + fallSpeed + 'px'; 
+			pc.style.top = 200 + 'px';
+		}
+		else{
+			platformDiv.style.top = 0 + 'px';
+		}
 	}
 }
 
