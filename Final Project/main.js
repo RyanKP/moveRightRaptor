@@ -72,7 +72,7 @@ function init(){
 	for (var i = 0; i<3; i++) addLife();
 
 	pc = document.createElement('DIV');
-	//pc.src = "princessStanding.gif";
+	pc.src = "Raptor.png";
 	pc.id = "pc";
 	pc.style.width = '20px';
 	pc.style.height = '40px';
@@ -601,25 +601,25 @@ function gameloop(){
 			nextLevel();
 		}
 	}
-	//var pc_src = pc.src.split('/').pop();
+	var pc_src = pc.src.split('/').pop();
 	
-	// if(fallSpeed==0){
-	// 	if(leftArrowDown || rightArrowDown){
-	// 	if(pc_src != 'princessRunning.gif'){ pc.src = 'princessRunning.gif';}
-	// 	}
-	// 	else{
-	// 		if(fallSpeed<=0) pc.src = 'princessStanding.gif';
-	// 	}
-	// 	if(leftArrowDown){
-	// 		pc.className='flipHorizontal';
-	// 	}
-	// 	else{
-	// 		pc.className='';
-	// 	}
-	// }
-	// else if(fallSpeed<0){
-	// 	pc.src = 'princessStanding.gif';
-	// }
+	if(fallSpeed==0){
+		if(leftArrowDown || rightArrowDown){
+		if(pc_src != 'RaptorRun.gif'){ pc.src = 'RaptorRun.gif';}
+		}
+		else{
+			if(fallSpeed<=0) pc.src = 'Raptor.png';
+		}
+		if(leftArrowDown){
+			pc.className='flipHorizontal';
+		}
+		else{
+			pc.className='';
+		}
+	}
+	else if(fallSpeed<0){
+		pc.src = 'Raptor.png';
+	}
 
 }
 
