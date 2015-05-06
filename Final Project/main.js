@@ -189,7 +189,7 @@ function nextLevel(){
 	upArrowDown = false;
 
 	pc.style.left = '190px';
-	pc.style.top = '0px';
+	pc.style.top = '250px';
 	pcDiv.style.left = '190px';
 	pcDiv.style.top = '0px';
 
@@ -232,7 +232,7 @@ function nextLevel(){
 		npc_prince.style.left = '3000px';
 		npc_prince.style.top = '340px';
 
-		addVMPlatform(100, -5, 420, 20, 50, 200);
+		addVMPlatform(100, 100, 420, 20, 50, 200);
 		//addHMPlatform(100, -5, 20, 420, 50, 200);
 		addPlatform(100, -5, 20, 420);
 		addPlatform(100, 380, 115, 20);

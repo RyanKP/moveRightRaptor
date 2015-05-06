@@ -72,6 +72,7 @@
 		// } 
 		//platformDiv.style.top = parseInt(platformDiv.style.top) - fallSpeed + 'px';
 		movingObject.style.top = parseInt(movingObject.style.top) - fallSpeed + 'px';
+		//fallSpeed*=-1
 	}
 	else{
 		movingObject = pc;
@@ -87,13 +88,13 @@
 			console.log('hit')
 			if(fallSpeed<0){
 				console.log('bottom of platform')
-				pc.style.top = parseInt(platforms[i].style.top) + parseInt(platforms[i].style.height) + 'px';
+				movingObject.style.top = parseInt(platforms[i].style.top) + parseInt(platforms[i].style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				fallSpeed = -1;
 			}
 			else{
 				console.log('top of platform')
-				pc.style.top = parseInt(platforms[i].style.top) - parseInt(pc.style.height) + 'px';
+				movingObject.style.top = parseInt(platforms[i].style.top) - parseInt(pc.style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				if(upArrowDown){ 
 					fallSpeed = -25;
@@ -117,13 +118,13 @@
 			console.log('hit hMP')
 			if(fallSpeed<0){
 				console.log('bottom of platform')
-				pc.style.top = parseInt(hMPlatforms[i].style.top) + parseInt(hMPlatforms[i].style.height) + 'px';
+				movingObject.style.top = parseInt(hMPlatforms[i].style.top) + parseInt(hMPlatforms[i].style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				fallSpeed = -1;
 			}
 			else{
 				console.log('top of platform')
-				pc.style.top = parseInt(hMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
+				movingObject.style.top = parseInt(hMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 					if(hMPRight[i]){
 						var sideHit = false;
@@ -210,10 +211,10 @@
 				console.log('top of platform')
 				fallSpeed = -1;
 				if(vMPUp[i]){
-					pc.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
+					movingObject.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
 				}
 				else{
-					pc.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) + parseInt(vMPlatforms[i].speed) + 'px';
+					movingObject.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) + parseInt(vMPlatforms[i].speed) + 'px';
 				}
 			}
 			else{
@@ -236,7 +237,7 @@
 					vMPlatforms[i].style.top = vMPlatforms[i].min + 'px';
 					vMPUp[i] = true;
 				}
-				pc.style.top = parseInt(vMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
+				movingObject.style.top = parseInt(vMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 					if(vMPUp[i]){
 						// platformDiv.style.top = parseInt(platformDiv.style.top) - 5 +'px';
