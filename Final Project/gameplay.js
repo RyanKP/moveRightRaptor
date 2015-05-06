@@ -59,26 +59,11 @@
 		fallSpeed = 500;
 	}
 
-	if(parseInt(pc.style.top)<200) mode = 2;
 
-	if(mode = 2){
-		movingObject = platformDiv;
 
-		//change this. every time the pc is at 200, move it up.
-		// platformDiv.style.top =  200 - parseInt(pc.style.top) + 'px'; //fallSpeed + 'px';
-		// if(fallSpeed<0){
-		// 	platformDiv.style.top = parseInt(platformDiv.style.top) +  fallSpeed + 'px';
-		// 	pc.style.top=200+'px';
-		// } 
-		//platformDiv.style.top = parseInt(platformDiv.style.top) - fallSpeed + 'px';
-		movingObject.style.top = parseInt(movingObject.style.top) - fallSpeed + 'px';
-	}
-	else{
-		movingObject = pc;
-		movingObject.style.top = parseInt(movingObject.style.top) + fallSpeed + 'px';
-		//pc.style.top = parseInt(pc.style.top) - fallSpeed + 'px';
-	}
-
+	platformDiv.style.top = parseInt(platformDiv.style.top) - fallSpeed + 'px';
+	
+	
 
 	
 
@@ -87,13 +72,13 @@
 			console.log('hit')
 			if(fallSpeed<0){
 				console.log('bottom of platform')
-				pc.style.top = parseInt(platforms[i].style.top) + parseInt(platforms[i].style.height) + 'px';
+				platformDiv.style.top = parseInt(platforms[i].style.top) + parseInt(platforms[i].style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				fallSpeed = -1;
 			}
 			else{
 				console.log('top of platform')
-				pc.style.top = parseInt(platforms[i].style.top) - parseInt(pc.style.height) + 'px';
+				platformDiv.style.top = parseInt(platforms[i].style.top)  * -1  + parseInt(pc.style.height) + parseInt(pcDiv.style.top) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				if(upArrowDown){ 
 					fallSpeed = -25;
@@ -117,13 +102,13 @@
 			console.log('hit hMP')
 			if(fallSpeed<0){
 				console.log('bottom of platform')
-				pc.style.top = parseInt(hMPlatforms[i].style.top) + parseInt(hMPlatforms[i].style.height) + 'px';
+				platformDiv.style.top = parseInt(hMPlatforms[i].style.top) + parseInt(hMPlatforms[i].style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				fallSpeed = -1;
 			}
 			else{
 				console.log('top of platform')
-				pc.style.top = parseInt(hMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
+				platformDiv.style.top = parseInt(hMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 					if(hMPRight[i]){
 						var sideHit = false;
@@ -210,10 +195,10 @@
 				console.log('top of platform')
 				fallSpeed = -1;
 				if(vMPUp[i]){
-					pc.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
+					platformDiv.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
 				}
 				else{
-					pc.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) + parseInt(vMPlatforms[i].speed) + 'px';
+					platformDiv.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) + parseInt(vMPlatforms[i].speed) + 'px';
 				}
 			}
 			else{
@@ -236,7 +221,7 @@
 					vMPlatforms[i].style.top = vMPlatforms[i].min + 'px';
 					vMPUp[i] = true;
 				}
-				pc.style.top = parseInt(vMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
+				platformDiv.style.top = parseInt(vMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 					if(vMPUp[i]){
 						// platformDiv.style.top = parseInt(platformDiv.style.top) - 5 +'px';
@@ -337,6 +322,7 @@
 		}
 		
 	}
+	//platformDiv.style.top*=-1;
 }
 
 document.addEventListener('keydown', function(event){

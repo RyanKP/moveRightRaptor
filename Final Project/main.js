@@ -191,7 +191,7 @@ function nextLevel(){
 	pc.style.left = '190px';
 	pc.style.top = '250px';
 	pcDiv.style.left = '190px';
-	pcDiv.style.top = '0px';
+	pcDiv.style.top = '250px';
 
 	platformDiv = document.getElementById('platforms');
 
@@ -216,7 +216,7 @@ function nextLevel(){
 	spikes = new Array();
 	
 
-	if(level==1){
+	if(level==2){
 
 		// document.getElementById('sndTick').pause();
 		// document.getElementById('music1').pause();
@@ -268,7 +268,7 @@ function nextLevel(){
 
 	}
 
-	else if(level==2){
+	else if(level==1){
 		// document.getElementById('music1').pause();
 		// document.getElementById('music2').pause();
 		// document.getElementById('sndTick').pause();
