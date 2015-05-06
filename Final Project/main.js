@@ -71,11 +71,11 @@ function init(){
 	lifebar = document.getElementById('lifebar');
 	for (var i = 0; i<3; i++) addLife();
 
-	pc = document.createElement('DIV');
+	pc = document.createElement('img');
 	pc.src = "Raptor.png";
 	pc.id = "pc";
-	pc.style.width = '20px';
-	pc.style.height = '40px';
+	pc.style.width = '74px';
+	pc.style.height = '50px';
 	pc.style.display = 'block';
 	gameWindow.appendChild(pc);
 
