@@ -10,7 +10,7 @@ function hittest(a, b){
 	var aY4 = aY3;
 
 	var bX1 = parseInt(b.style.left);
-	var bY1 = parseInt(b.style.top)  + parseInt(document.getElementById('pc').style.height);
+	var bY1 = parseInt(b.style.top);  //+ parseInt(document.getElementById('pc').style.height);
 	var bX2 = bX1 + parseInt(b.style.width)-1;
 	var bY2 = bY1;
 	var bX3 = bX1;

@@ -77,8 +77,8 @@
 				fallSpeed = -1;
 			}
 			else{
-				console.log('top of platform')
-				platformDiv.style.top = parseInt(platforms[i].style.top)  * -1  + parseInt(pc.style.height) + parseInt(pcDiv.style.top) + 'px';
+				//alert('top of platform')
+				platformDiv.style.top =   parseInt(platforms[i].style.top) * -1 + parseInt(pc.style.height) + parseInt(pcDiv.style.top) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				if(upArrowDown){ 
 					fallSpeed = -25;
