@@ -6,8 +6,22 @@
 		<script src="gameplay_moving.js"></script>
 		<script type="text/javascript" src="main.js"></script>
 
+<<<<<<< Updated upstream
 				<style type="text/css">
 			.button{
+=======
+		<style type="text/css">
+			
+			#gameWindow{
+				position: relative;
+				width: 1280px;
+				height: 720px;
+				background-color: rgb(230, 230, 180);
+				overflow: hidden;
+			}
+
+			#pc{
+>>>>>>> Stashed changes
 				position: absolute;
 				display: none;
 				border-radius: 5px;
@@ -213,6 +227,7 @@
 
 				display:none;
 
+<<<<<<< Updated upstream
 				background-color: rgba(255, 255, 255, 0.6);
 				color: black;
 
@@ -220,6 +235,18 @@
 				padding-top: 10px;
 				padding-bottom: 10px;
 				border-radius: 10px;
+=======
+				pc = document.createElement('DIV');
+				pc.src = "../art/pc_placeholder.png";
+				pc.id = "pc";
+				pc.style.width = '74px';
+				pc.style.height = '50px';
+				pc.style.display = 'block';
+
+				pcDiv = document.getElementById('pcDiv');
+				pcDiv.style.width = '74px';
+				pcDiv.style.height = '50px';
+>>>>>>> Stashed changes
 
 				text-align: center;
 				font-size: 14pt;
