@@ -69,16 +69,18 @@
 
 	for(var i=0; i<platforms.length; i++){
 		if( hittest(pc, platforms[i]) ){
-			console.log('hit')
+			//console.log('hit')
 			if(fallSpeed<0){
-				console.log('bottom of platform')
-				platformDiv.style.top = parseInt(platforms[i].style.top) + parseInt(platforms[i].style.height) + 'px';
+				//console.log('bottom of platform')
+				//TODO if platform is abobve 50, no jump through -parsint platforms[i].eitng
+
+				platformDiv.style.top = parseInt(platformDiv.style.top) + parseInt(platforms[i].style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				fallSpeed = -1;
 			}
 			else{
 				//alert('top of platform')
-				platformDiv.style.top =   parseInt(platforms[i].style.top) * -1 + parseInt(pc.style.height) + parseInt(pcDiv.style.top) + 'px';
+				platformDiv.style.top =   parseInt(platforms[i].style.top) * -1 + parseInt(pc.style.height) + parseInt(pc.style.top) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				if(upArrowDown){ 
 					fallSpeed = -25;
@@ -99,16 +101,16 @@
 
 	for(var i=0; i<hMPlatforms.length; i++){
 		if( hittest(pc, hMPlatforms[i]) ){
-			console.log('hit hMP')
+			//console.log('hit hMP')
 			if(fallSpeed<0){
-				console.log('bottom of platform')
-				platformDiv.style.top = parseInt(hMPlatforms[i].style.top) + parseInt(hMPlatforms[i].style.height) + 'px';
+				//console.log('bottom of platform')
+				platformDiv.style.top = parseInt(platformDiv.style.top) + parseInt(hMPlatforms[i].style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				fallSpeed = -1;
 			}
 			else{
-				console.log('top of platform')
-				platformDiv.style.top = parseInt(hMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
+				//console.log('top of platform')
+				platformDiv.style.top = parseInt(hMPlatforms[i].style.top) * -1 + parseInt(pc.style.height) + parseInt(pc.style.top) + 'px';
 				//pc.style.top = pcDiv.style.top;
 					if(hMPRight[i]){
 						var sideHit = false;
@@ -189,21 +191,24 @@
 		}
 	}
 	for(var i=0; i<vMPlatforms.length; i++){
-		console.log('hit vMP')
+		console.log('Log: platformDiv ' + platformDiv.style.top + ' vMPlatforms top:' + vMPlatforms[0].top + ' vMPlatforms top:' + vMPlatforms[0].style.height);
+
 		if( hittest(pc, vMPlatforms[i]) ){
+			console.log('General hit: platformDiv ' + platformDiv.style.top + ' vMPlatforms top:' + vMPlatforms[0].top + ' vMPlatforms top:' + vMPlatforms[0].style.height);
+			
 			if(fallSpeed<0){
-				console.log('top of platform')
+				//console.log('top of platform')
 				fallSpeed = -1;
 				if(vMPUp[i]){
 					platformDiv.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
 				}
 				else{
-					platformDiv.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) + parseInt(vMPlatforms[i].speed) + 'px';
+					platformDiv.style.top = parseInt(vMPlatforms[i].style.top) - parseInt(vMPlatforms[i].style.height) + parseInt(vMPlatforms[i].speed) + 'px';
 				}
 			}
 			else{
-				console.log('bottom of platform')
-				vMPlatforms[i].style.top = parseInt(vMPlatforms[i].style.top) - vMPlatforms[i].speed + 'px';
+				
+				vMPlatforms[i].style.top = parseInt(vMPlatforms[i].style.top) - parseInt(vMPlatforms[i].speed) + 'px'; //+ vMPlatforms[i].speed + 'px';
 				if(vMPlatforms[i].speed<0){
 					vMPUp[i] = true;
 				}
@@ -221,7 +226,11 @@
 					vMPlatforms[i].style.top = vMPlatforms[i].min + 'px';
 					vMPUp[i] = true;
 				}
-				platformDiv.style.top = parseInt(vMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
+				//alert('top of platform')
+				console.log('top hit: platformDiv ' + platformDiv.style.top + ' vMPlatforms top:' + vMPlatforms[0].top + ' vMPlatforms top:' + vMPlatforms[0].style.height);
+				platformDiv.style.top =  parseInt(pc.style.top) + parseInt(pc.style.height) - parseInt(vMPlatforms[i].style.top) + 'px';//parseInt(pc.style.top) + parseInt(pc.style.height) + parseInt(vMPlatforms[i].style.top) + 'px';
+				//platformDiv.style.top = parseInt(platformDiv.style.top) *-1;
+				console.log('top hit update: platformDiv ' + platformDiv.style.top + ' vMPlatforms top:' + vMPlatforms[0].top + ' vMPlatforms top:' + vMPlatforms[0].style.height);
 				//pc.style.top = pcDiv.style.top;
 					if(vMPUp[i]){
 						// platformDiv.style.top = parseInt(platformDiv.style.top) - 5 +'px';
