@@ -73,8 +73,12 @@
 			if(fallSpeed<0){
 				//console.log('bottom of platform')
 				//TODO if platform is abobve 50, no jump through -parsint platforms[i].eitng
-
-				platformDiv.style.top = parseInt(platformDiv.style.top) + parseInt(platforms[i].style.height) + 'px';
+				if(parseInt(platforms[i].style.top) + parseInt(platforms[i].style.height) < parseInt(platformDiv.style.top) - fallSpeed){
+					platformDiv.style.top = parseInt(platformDiv.style.top) - parseInt(platforms[i].style.height) + 'px';
+				}
+				else{
+					platformDiv.style.top = parseInt(platformDiv.style.top) + parseInt(platforms[i].style.height) + 'px';
+				}
 				//pc.style.top = pcDiv.style.top;
 				fallSpeed = -1;
 			}
@@ -104,7 +108,12 @@
 			//console.log('hit hMP')
 			if(fallSpeed<0){
 				//console.log('bottom of platform')
-				platformDiv.style.top = parseInt(platformDiv.style.top) + parseInt(hMPlatforms[i].style.height) + 'px';
+				if(parseInt(hMPlatforms[i].style.top) + parseInt(hMPlatforms[i].style.height) < parseInt(platformDiv.style.top) - fallSpeed){
+					platformDiv.style.top = parseInt(platformDiv.style.top) - parseInt(hMPlatforms[i].style.height) + 'px';
+				}
+				else{
+					platformDiv.style.top = parseInt(platformDiv.style.top) + parseInt(hMPlatforms[i].style.height) + 'px';
+				}
 				//pc.style.top = pcDiv.style.top;
 				fallSpeed = -1;
 			}
@@ -200,10 +209,24 @@
 				//console.log('top of platform')
 				fallSpeed = -1;
 				if(vMPUp[i]){
-					platformDiv.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
+
+					if(parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) < parseInt(platformDiv.style.top) - fallSpeed){
+						platformDiv.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
+					}
+					else{
+						platformDiv.style.top = parseInt(vMPlatforms[i].style.top) - parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
+					}
+
+					//platformDiv.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
 				}
 				else{
-					platformDiv.style.top = parseInt(vMPlatforms[i].style.top) - parseInt(vMPlatforms[i].style.height) + parseInt(vMPlatforms[i].speed) + 'px';
+					if(parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) < parseInt(platformDiv.style.top) - fallSpeed){
+						platformDiv.style.top = parseInt(vMPlatforms[i].style.top) - parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
+					}
+					else{
+						platformDiv.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
+					}
+					//platformDiv.style.top = parseInt(vMPlatforms[i].style.top) - parseInt(vMPlatforms[i].style.height) + parseInt(vMPlatforms[i].speed) + 'px';
 				}
 			}
 			else{

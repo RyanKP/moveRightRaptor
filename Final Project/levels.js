@@ -15,7 +15,7 @@ function makeLevel(){
 		npc_prince.style.left = '3000px';
 		npc_prince.style.top = '340px';
 
-		addVMPlatform(100, 100, 420, 20, 0, 200);
+		addPlatform(100, 200, 420, 20);
 		//addHMPlatform(100, -5, 20, 420, 50, 200);
 		addPlatform(100, -5, 20, 420);
 		addPlatform(100, 380, 115, 20);
@@ -73,7 +73,8 @@ function makeLevel(){
 		npc_prince.style.left = '2500px';
 		npc_prince.style.top = '340px';
 
-		addVMPlatform(100, 100, 50, 20, 90, 270); //lol.
+		addPlatform(100, 100, 50, 20); //lol.
+		addVMPlatform(200, 100, 50, 20, 0, 200);
 		addPlatform(100, 260, 300, 20);
 		addPlatform(100, 380, 1100, 100);
 		addPlatform(750, 300, 20, 40);
