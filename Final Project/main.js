@@ -151,8 +151,8 @@ function addSpike(x, y){
 	
 	spike.style.left = x + 'px';
 	spike.style.top = y + 'px';
-	spike.style.width= '20px';
-	spike.style.height= '20px';
+	spike.style.width= '50px';
+	spike.style.height= '50px';
 
 	spikes.push(spike);
 	platformDiv.appendChild(spike);

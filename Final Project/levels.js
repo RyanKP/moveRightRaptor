@@ -287,11 +287,27 @@ function makeLevel(){
 		platformDiv.style.top = '1150px';
 
 
-		addPlatform(0, 100, 500, 1000);
-		addPlatform(0, 1000, 50, 205);
-		addPlatform(0, 1200, 500, 50);
-		addPlatform(498, 1175, 502, 50);
-		addPlatform(750, 1075, 100, 50);
-		
+		addPlatform(140, 300, 2500, 50);
+		addPlatform(140, -1200, 500, 1400);
+		addPlatform(140, 190, 50, 115);
+		addPlatform(800, 200, 100, 50);
+		addPlatform(1250, 200, 200, 25);
+		addPlatform(1600, 125, 100, 50);
+		addPlatform(1800, 0, 100, 50);
+		addHMPlatform(2000, 50, 50, 50, 2000, 2400);
+		addPlatform(240, 500, 1840, 50);
+		addPlatform(140, 190, 50, 1000);
+		addPlatform(140, 190, 50, 115);
+		addPlatform(2500, 0, 500, 700);
+		addPlatform(4000, 0, 500, 700);
+		addHMPlatform(3200, 50, 100, 50, 3200, 3800);
+
+		addSpike(2475, 0);
+		addSpike(2475, 50);
+		addSpike(2475, 100);
+		addSpike(2475, 150);
+		addSpike(2475, 200);
+		addSpike(2475, 250);
+
 
 	}}
