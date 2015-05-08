@@ -3,6 +3,7 @@ var npc_prince;
 var pcDiv;
 
 var output;
+var run = 0;
 
 var gameTimer;
 var mX;
@@ -225,7 +226,7 @@ function nextLevel(){
 }
 
 function gameloop(){
-
+	if (leftArrowDown || rightArrowDown) run++;
 	count++;
 
 	if (count%25==0){

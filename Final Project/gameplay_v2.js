@@ -20,7 +20,9 @@
 		pc.style.left = parseInt(pc.style.left) + 10 + 'px';
 
 		if( ! sideHit ){
-			platformDiv.style.left = parseInt(platformDiv.style.left) + 10 + 'px';
+			if (run < 50) platformDiv.style.left = parseInt(platformDiv.style.left) + 10 + 'px';
+			else if (run > 50) platformDiv.style.left = parseInt(platformDiv.style.left) + 15 + 'px';
+			else if (run > 100) platformDiv.style.left = parseInt(platformDiv.style.left) + 20 + 'px';
 		}
 	}
 	if(rightArrowDown){
@@ -41,7 +43,9 @@
 		pc.style.left = parseInt(pc.style.left) - 10 + 'px';
 		
 		if( ! sideHit ) {
-			platformDiv.style.left = parseInt(platformDiv.style.left) - 10 + 'px';
+			if (run < 50) platformDiv.style.left = parseInt(platformDiv.style.left) - 10 + 'px';
+			else if (run > 50) platformDiv.style.left = parseInt(platformDiv.style.left) - 15 + 'px';
+			else if (run > 100) platformDiv.style.left = parseInt(platformDiv.style.left) - 20 + 'px';
 		}
 
 	}
@@ -355,8 +359,14 @@ document.addEventListener('keydown', function(event){
 });
 
 document.addEventListener('keyup', function(event){
-	if(event.keyCode==37) leftArrowDown = false;
-	if(event.keyCode==39) rightArrowDown = false;
+	if(event.keyCode==37) {
+		leftArrowDown = false;
+		run = 0;
+	}
+	if(event.keyCode==39) {
+		rightArrowDown = false;
+		run = 0;
+	}
 	if(event.keyCode==38) upArrowDown = false;
 	if(event.keyCode==32) spaceBarDown = false;
 });

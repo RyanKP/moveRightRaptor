@@ -259,4 +259,39 @@ function makeLevel(){
 		addSpike(2030, 20);
 		addSpike(2030, 0);
 
+	}
+
+	else if(level==4){
+		// document.getElementById('music1').pause();
+		// document.getElementById('music2').pause();
+		// document.getElementById('sndTick').pause();
+
+		// document.getElementById('music2').currentTime = 0;
+		// document.getElementById('music2').loop = true;
+		// document.getElementById('music2').volume = 0.1;
+
+		// if(paused){
+		// 	document.getElementById('music2').pause();
+		// }
+		// else{
+		// 	document.getElementById('music2').play();
+		// }
+
+
+		time = 1000;
+		document.getElementById('stat').innerHTML= "Time " + time;
+		npc_prince.style.left = '2500px';
+		npc_prince.style.top = '340px';
+
+		platformDiv.style.left = '0px';
+		platformDiv.style.top = '1150px';
+
+
+		addPlatform(0, 100, 500, 1000);
+		addPlatform(0, 1000, 50, 205);
+		addPlatform(0, 1200, 500, 50);
+		addPlatform(498, 1175, 502, 50);
+		addPlatform(750, 1075, 100, 50);
+		
+
 	}}
