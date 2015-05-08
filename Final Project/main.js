@@ -350,7 +350,7 @@ function gameloop(){
 		if(pc_src != 'RaptorRun.gif'){ pc.src = 'RaptorRun.gif';}
 		}
 		else{
-			if(fallSpeed<=0) pc.src = 'Raptor.png';
+			if(fallSpeed<=0) pc.src = 'Standing.gif';
 		}
 		if(leftArrowDown){
 			pc.className='flipHorizontal';
@@ -360,7 +360,7 @@ function gameloop(){
 		}
 	}
 	else if(fallSpeed<0){
-		pc.src = 'Raptor.png';
+		pc.src = 'Jumping.gif';
 	}
 
 }
