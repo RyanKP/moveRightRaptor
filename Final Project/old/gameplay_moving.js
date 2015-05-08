@@ -1,11 +1,18 @@
+
+
  function movement(){
+ 	var run = 0;
  	var mode;
  	var movingObject;
 	var pcTop = parseInt(pc.style.top);
 	// HORIZONTAL MOVEMENT
 
 	if(leftArrowDown){
+		run++;
+		console.log('run');
 		pc.style.left = parseInt(pc.style.left) - 10 + 'px';
+		//else if (run >= 10) pc.style.left = parseInt(pc.style.left) - 15 + 'px';
+		//else if (run >= 20) pc.style.left = parseInt(pc.style.left) - 25 + 'px'; 
 
 		var sideHit = false;
 		for(var i=0; i<platforms.length; i++){
@@ -22,6 +29,8 @@
 		if( ! sideHit ){
 			platformDiv.style.left = parseInt(platformDiv.style.left) + 10 + 'px';
 		}
+
+
 	}
 	if(rightArrowDown){
 		
@@ -85,15 +94,15 @@
 
 	for(var i=0; i<platforms.length; i++){
 		if( hittest(pc, platforms[i]) ){
-			console.log('hit')
+			//console.log('hit')
 			if(fallSpeed<0){
-				console.log('bottom of platform')
+				//console.log('bottom of platform')
 				movingObject.style.top = parseInt(platforms[i].style.top) + parseInt(platforms[i].style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				fallSpeed = -1;
 			}
 			else{
-				console.log('top of platform')
+				//console.log('top of platform')
 				movingObject.style.top = parseInt(platforms[i].style.top) - parseInt(pc.style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				if(upArrowDown){ 
@@ -115,15 +124,15 @@
 
 	for(var i=0; i<hMPlatforms.length; i++){
 		if( hittest(pc, hMPlatforms[i]) ){
-			console.log('hit hMP')
+			//console.log('hit hMP')
 			if(fallSpeed<0){
-				console.log('bottom of platform')
+				//console.log('bottom of platform')
 				movingObject.style.top = parseInt(hMPlatforms[i].style.top) + parseInt(hMPlatforms[i].style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 				fallSpeed = -1;
 			}
 			else{
-				console.log('top of platform')
+				//console.log('top of platform')
 				movingObject.style.top = parseInt(hMPlatforms[i].style.top) - parseInt(pc.style.height) + 'px';
 				//pc.style.top = pcDiv.style.top;
 					if(hMPRight[i]){
@@ -205,10 +214,10 @@
 		}
 	}
 	for(var i=0; i<vMPlatforms.length; i++){
-		console.log('hit vMP')
+		//console.log('hit vMP')
 		if( hittest(pc, vMPlatforms[i]) ){
 			if(fallSpeed<0){
-				console.log('top of platform')
+				//console.log('top of platform')
 				fallSpeed = -1;
 				if(vMPUp[i]){
 					movingObject.style.top = parseInt(vMPlatforms[i].style.top) + parseInt(vMPlatforms[i].style.height) - parseInt(vMPlatforms[i].speed) + 'px';
@@ -218,7 +227,7 @@
 				}
 			}
 			else{
-				console.log('bottom of platform')
+				//console.log('bottom of platform')
 				vMPlatforms[i].style.top = parseInt(vMPlatforms[i].style.top) - vMPlatforms[i].speed + 'px';
 				if(vMPlatforms[i].speed<0){
 					vMPUp[i] = true;
@@ -407,8 +416,14 @@ document.addEventListener('keydown', function(event){
 });
 
 document.addEventListener('keyup', function(event){
-	if(event.keyCode==37) leftArrowDown = false;
-	if(event.keyCode==39) rightArrowDown = false;
+	if(event.keyCode==37) {
+		leftArrowDown = false;
+		run = 0;
+	}
+	if(event.keyCode==39) {
+		rightArrowDown = false;
+		run = 0;
+	}
 	if(event.keyCode==38) upArrowDown = false;
 	if(event.keyCode==32) spaceBarDown = false;
 });
